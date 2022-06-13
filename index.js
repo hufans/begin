@@ -28,8 +28,10 @@ var toArray = function (cursor) {
 exports.handler = async function http(req) {
     try {
         var con = await conn(url);
-        var db = con.db('db1');
-        var collection = db.collection('collection1');
+
+        var db = con.db('allen');
+        var collection = db.collection('test');
+        console.log(collection);
         var result = await collection.find({}).toArray();
         return {
             headers: {
@@ -41,6 +43,7 @@ exports.handler = async function http(req) {
             body: JSON.stringify(result),
         };
     } catch (error) {
+        console.log(error);
         return error;
     }
 };
