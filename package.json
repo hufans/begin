@@ -17,6 +17,7 @@
     "start": "cross-env NODE_ENV=testing npx sandbox"
   },
   "devDependencies": {
+    "mongodb": "^4.7.0",
     "@architect/functions": "latest",
     "@architect/sandbox": "^5.0.0",
     "@begin/data": "latest",
