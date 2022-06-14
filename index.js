@@ -1,4 +1,4 @@
-var MongoClient = require('mongodb').MongoClient;
+// var MongoClient = require('mongodb').MongoClient;
 // import { MongoClient } from 'mongodb';
 var url = process.env.MONGOURL;
 
@@ -46,5 +46,5 @@ exports.handler = async function http(req) {
     //     console.log(error);
     //     return error;
     // }
-    return 'Hello World';
+    return url;
 };
