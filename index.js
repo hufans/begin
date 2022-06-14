@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = process.env.MONGOURL;
+// var url = process.env.MONGOURL;
 
 var conn = function (url) {
     return new Promise((resolve, reject) => {
@@ -46,5 +46,5 @@ exports.handler = async function http(req) {
     //     console.log(error);
     //     return error;
     // }
-    return process.env.MONGOURL
+    return "url"
 };
