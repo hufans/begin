@@ -1,5 +1,7 @@
 // var MongoClient = require('mongodb').MongoClient;
 // var url = process.env.MONGOURL;
+import { MongoClient } from "mongodb";
+let url = process.env.MONGOURL;
 
 var conn = function (url) {
     return new Promise((resolve, reject) => {
