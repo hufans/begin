@@ -1,5 +1,4 @@
-// var MongoClient = require('mongodb').MongoClient;
-// import { MongoClient } from 'mongodb';
+var MongoClient = require('mongodb').MongoClient;
 var url = process.env.MONGOURL;
 
 var conn = function (url) {
@@ -27,24 +26,23 @@ var toArray = function (cursor) {
 };
 
 exports.handler = async function http(req) {
-    // try {
-    //     var con = await conn(url);
-    //     var db = con.db('allen');
-    //     var collection = db.collection('test');
-    //     console.log(collection);
-    //     var result = await collection.find({}).toArray();
-    //     return {
-    //         headers: {
-    //             'content-type': 'application/json; charset=utf8',
-    //             'cache-control':
-    //                 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-    //         },
-    //         statusCode: 200,
-    //         body: JSON.stringify(result),
-    //     };
-    // } catch (error) {
-    //     console.log(error);
-    //     return error;
-    // }
-    return url;
+    try {
+        var con = await conn(url);
+        var db = con.db('allen');
+        var collection = db.collection('test');
+        console.log(collection);
+        var result = await collection.find({}).toArray();
+        return {
+            headers: {
+                'content-type': 'application/json; charset=utf8',
+                'cache-control':
+                    'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+            },
+            statusCode: 200,
+            body: JSON.stringify(result),
+        };
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
 };
